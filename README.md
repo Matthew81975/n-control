@@ -113,3 +113,24 @@ N Control was extracted from the Genesis Forge tooling, where it was developed t
 ## License
 
 MIT
+
+
+## Tk widget
+
+N Control also ships with an optional Tk rotary control:
+
+```python
+from ncontrol import NDimensionalKnob
+
+knob = NDimensionalKnob(
+    parent,
+    maximum=space.count - 1,
+    value=0,
+    command=on_change,
+    tk=tk,
+    ttk=ttk,
+    auto_scan_enabled=False,  # keep Auto Scan capability but disable it in this app
+)
+```
+
+`auto_scan_enabled` defaults to `True`. Setting it to `False` disables the Auto Scan UI and behavior without removing Auto Scan from the reusable control.
