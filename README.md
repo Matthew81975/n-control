@@ -72,6 +72,26 @@ print(state["osc.frequency"])
 
 Names can be hierarchical (`melody.pitch`, `instrument.filter.cutoff`, etc.), which makes the same control primitive reusable across large composed systems.
 
+
+## Probabilistic state spaces
+
+N Control can also treat every dimension as a state space with a probability distribution and constraints. States may be literal values or opaque pointers to procedures, materials, nested controls, or other registry objects.
+
+```python
+from ncontrol import BinaryConstraint, PointerState, ProbabilisticNControl, StateSpace
+
+rooms = StateSpace(["kitchen", "bedroom"])
+appliances = StateSpace([
+    PointerState("appliance.oven", "Oven"),
+    PointerState("appliance.lamp", "Lamp"),
+])
+
+control = ProbabilisticNControl({"room": rooms, "appliance": appliances})
+result = control.collapse_all()
+```
+
+Weights express preference; constraints express possibility. Constraint pruning automatically renormalizes surviving weights. The framework exposes entropy and minimum-entropy collapse, so Wave Function Collapse is one policy over the same general N-Control representation rather than a separate subsystem.
+
 ## Why serpentine traversal?
 
 A naive mixed-radix counter jumps when one digit rolls over. N Control reflects each nested sub-grid on alternating rows, producing a generalized boustrophedon path. For every pair of consecutive states, the Manhattan distance in lattice coordinates is exactly 1.
