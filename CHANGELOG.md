@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 - 2026-10-06
+
+- Add weighted finite state spaces with normalized probability distributions and entropy.
+- Add value/pointer states through the same state-space abstraction.
+- Add reversible constraint pruning and explicit manual/weighted collapse.
+- Add binary compatibility propagation across named N-Control dimensions.
+- Add minimum-entropy and full-collapse policies suitable for generalized Wave Function Collapse.
+
+
 ## 0.1.1 - 2026-10-01
 
 - Add optional Tk `NDimensionalKnob` widget.
