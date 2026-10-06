@@ -1,14 +1,12 @@
-"""N Control: one scalar control for deterministic traversal of N-D parameter spaces."""
+"""N Control: traversal and probabilistic state spaces for N-D controls."""
 from .core import ParameterAxis, SerpentineTraversal
 from .named import NamedParameter, NamedParameterSpace
+from .state import BinaryConstraint, PointerState, ProbabilisticNControl, StateSpace
 from .tk import NDimensionalKnob
 
 __all__ = [
-    "ParameterAxis",
-    "SerpentineTraversal",
-    "NamedParameter",
-    "NamedParameterSpace",
+    "ParameterAxis", "SerpentineTraversal", "NamedParameter", "NamedParameterSpace",
+    "StateSpace", "PointerState", "BinaryConstraint", "ProbabilisticNControl",
     "NDimensionalKnob",
 ]
-
-__version__ = "0.1.0"
+__version__ = "0.2.0"
